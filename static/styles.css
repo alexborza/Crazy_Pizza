@@ -1,0 +1,342 @@
+body{
+    background-color: rgb(255,248,220);
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a {
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+
+.nav-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 38px;
+    height: 60px;
+}
+
+.left-side{
+    display: flex;
+}
+
+.nav-wrapper > .left-side > div{
+    margin-right: 20px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+.nav-link-wrapper{
+    height: 22px;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.5s;
+}
+
+.nav-link-wrapper a{
+    color: #8a8a8a;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+.nav-image-logo{
+    background-image: url("images/Crazy-Pizza.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    text-indent: -9999999px;
+    top: -20px;
+    width: 150px;
+}
+
+.nav-link-wrapper:hover{
+    border-bottom: 1px solid black;
+}
+
+.nav-link-wrapper a:hover{
+    color: black;
+}
+
+.slide-container{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+.image-container{
+    display: flex;
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+.image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+#prevBtn{
+    position: abolute;
+    z-index: 10%;
+    margin-left: 200px;
+    font-size: 30px;
+    margin-bottom: 150px;
+    color: black;
+    cursor: pointer;
+}
+
+#nextBtn{
+    position: abolute;
+    top: 50%;
+    z-index: 10%;
+    margin-right: 100px;
+    margin-bottom: 150px;
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}
+
+.container-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-wrapper{
+    display: flex;
+}
+
+.leftPart{
+    width: 70%;
+    margin-left: 100px;
+}
+
+.rightPart{
+    width: 80%;
+    box-sizing: border-box;
+    float: left;
+}
+
+
+.artaGust{
+    width: 500px;
+    height: 90%;
+}
+
+
+.meniu {
+    position: relative;
+    max-width: 500px;
+    height: 35%;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+img {
+    vertical-align: middle;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.rightImageB{
+    background-color: black;
+}
+
+.meniu .text {
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    left: 30px;
+    color: #fff;
+    width: 45%;
+    text-align: center;
+}
+
+.meniu .text h1 {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.meniu .text h2 {
+    margin: 0 0 15px;
+    padding: 0;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 28px;
+}
+
+
+.meniu .text p {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+
+p {
+    margin: 0 0 10px;
+}
+
+.btn-rosu {
+    margin-top: 30px;
+    background: #d42934;
+    padding: 10px 30px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 11px;
+}
+
+.btn-verde {
+    letter-spacing: 1.5px;
+    padding: 6px 20px;
+    font-size: 13px;
+    display: intial;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: #ffffff;
+    color: #000000;
+}
+
+footer {
+    background: #f4341d url(images/bg.png) no-repeat center top;
+    background-size: cover;
+    position: absolute;
+    padding: 0px auto;
+    margin: 0px auto;
+    width: 100%;
+    height: auto;
+}
+
+.footerContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 1170px;
+    height: 500px;
+}
+
+.tabla .tabel-orar {
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    left: 30px;
+    color: #fff;
+    width: 45%;
+    text-align: left;
+    margin-left: 150px;
+    width: 500px;
+}
+
+.tabla .tabel-orar h1 {
+    margin: 0;
+    padding: 0;
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 28px;
+    font-family: "Comic Sans MS";
+}
+
+.tabla .tabel-orar h2 {
+    margin-top: 20px;
+    padding: 0;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 23px;
+    font-family: "Comic Sans MS";
+}
+
+.tabla .tabel-orar h3 {
+    margin-bottom: 20px;
+    padding: 0;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: "Comic Sans MS";
+}
+
+
+.tabla .tabel-orar p {
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-family: "Comic Sans MS";
+}
+
+
+p {
+    margin: 0 0 10px;
+}
+
+.footerDreapta{
+    width: 425px;
+}
+
+.footerDreapta .footRecenzii h1{
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    margin-right: 100px;
+    margin-top: 40px;
+}
+
+.footerDreapta .footRecenzii form{
+    width: 300px;
+}
+
+::placeholder{
+    color: grey;
+
+}
+
+.footerDreapta .footRecenzii input[type=text]{
+    width: 330px;
+    height: 25px;
+    background: rgba(0, 0, 0, .45);
+    outline: none;
+    border: none;
+    overflow: auto;
+    margin-top: 10px;
+    color: white;
+
+}
+
+.footerDreapta .footRecenzii textarea {
+    width: 330px;
+    height: 140px;
+    background: rgba(0, 0, 0, .45);
+    resize: none;
+    outline: none;
+    border: none;
+    overflow: auto;
+    margin-top: 30px;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.footerDreapta .footRecenzii .button{
+    margin-top: 25px;
+    width: 100px;
+    height: 30px;
+    background: steelblue;
+    border: none;
+    color: white;
+    margin-left: 120px;
+
+}
+
+@media (max-width: 768px){
+    #contact-section .contact-form{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    #contact-section .submit{
+        width: 60%;
+    }
+}

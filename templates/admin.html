@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+
+
+{% block title %} Home {% endblock %}
+
+
+
+{% block body %}
+
+
+
+<div class="container" >
+    <div class="row">
+        <div class="col md-12">
+
+            <div class="jumbotron p-3" style="background-color:rgb(255,248,220);">
+
+                <h2>Administreaza <b>Pizzeria </b>  <button type="button"  class="btn btn-success float-right"
+                data-toggle="modal" data-target="#mymodal">Adauga Pizza</button> </h2>
+
+
+                {% with messages = get_flashed_messages() %}
+
+                {% if messages %}
+
+                {% for message in messages %}
+
+                <div class="alert alert-success alert-dismissable" role="alert">
+
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+
+                        <span aria-hidden="true">x</span>
+
+                    </button>
+
+
+                {{message}}
+
+
+                </div>
+
+
+                {% endfor %}
+
+                {% endif %}
+                {% endwith %}
+
+
+                <table class="table table-hover table-dark">
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Titlu</th>
+                        <th>Pret-30cm</th>
+                        <th>Ingrediente</th>
+                        <th>Imagine</th>
+                        <th>Action</th>
+
+                    </tr>
+
+
+                   {% for row in pizze %}
+                    <tr>
+                        <td>{{row.id}}</td>
+                        <td>{{row.titlu}}</td>
+                        <td>{{row.pret}}</td>
+                        <td>{{row.ingrediente}}</td>
+                        <td><img id="imagineEdit" src="/static/images/{{row.poza}}" style="max-width:100px; max-height:100px"></td>
+
+                        <td>
+                            <form action="/get-pizza/{{row.id}}" method="POST">
+                            <input type="submit" id="{{row.id}}" class="btn btn-warning btn-xs" data-target="#modaledit{{row.id}}" value="Editeaza"/>
+                            </form>
+                            <a href="/delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Esti sigur ca vrei sa stergi inregistrarea ?')">Delete</a>
+
+                        </td>
+
+                    </tr>
+
+
+                    {% endfor %}
+
+
+                </table>
+
+
+            </div>
+
+
+
+                  <!-- Modal Add Pizza-->
+
+
+<div id="mymodal" class="modal fade" role="dialog">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+
+            <h4 class="modal-title">Adauga Pizza</h4>
+         </div>
+         <div class="modal-body">
+
+            <form action="{{url_for('insert')}}" enctype="multipart/form-data" method="POST">
+
+
+               <div class="form-group">
+
+                  <label>Titlu:</label>
+                  <input type="text" class="form-control" name="titlu" required="1">
+
+
+               </div>
+
+
+                <div class="form-group">
+
+
+                  <label>Pret-30cm:</label>
+                  <input type="text" class="form-control" name="pret" required="1">
+
+
+               </div>
+
+
+                <div class="form-group">
+                  <label>Ingrediente:</label>
+                  <input type="text" class="form-control" name="ingrediente" required="1">
+               </div>
+
+                <div class="form-group">
+                    <input type="file" id="file" hidden="hidden" name="file" accept="image/*"/>
+                    <button type="button" id="custom-button">Incarca o poza</button>
+                    <span id="custom-text">No file chosen</span>
+                    <script>
+                        $(function(){
+                            $('#file').on('change',function(){
+                                var filePath = $(this).val();
+                            });
+                        });
+                    </script>
+                    <script type="text/javascript">
+                        const realFileBtn = document.getElementById("file");
+                        const customBtn = document.getElementById("custom-button");
+                        const customTxt = document.getElementById("custom-text");
+
+                        customBtn.addEventListener("click",function(){
+                            realFileBtn.click();
+                        })
+
+                        realFileBtn.addEventListener("change", function(){
+                            if(realFileBtn.value){
+                                customTxt.innerHTML=realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+                            }
+                        })
+                    </script>
+                </div>
+
+               <div class="form-group">
+
+
+                  <button class="btn btn-primary" type="submit">Adauga Pizza</button>
+
+
+               </div>
+
+
+            </form>
+
+
+         </div>
+
+
+         <div class="modal-footer">
+
+
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+
+         </div>
+
+
+      </div>
+
+
+   </div>
+
+
+</div>
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Reservation Form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{url_for('static',filename='styleRezervare.css')}}">
+    </head>
+    <body>
+        <div class="nav-wrapper">
+            <div class="left-side">
+              <div class="nav-image-logo">
+                    <a href="/">Crazy Pizza</a>
+              </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/">Home</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/meniu">Meniu</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/rezervare">Rezervare</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/logare">Admin</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/contact">Contact</a>
+                </div>
+
+                 <div class="nav-link-wrapper">
+                    <a href="/recenzie">Recenzii</a>
+                </div>
+
+            </div>
+
+            <div class="right-side">
+                <div class="brand">
+                    <div> BORZA ALEXANDRU </div>
+                </div>
+
+            </div>
+
+        </div>
+
+                {% with messages = get_flashed_messages() %}
+
+                {% if messages %}
+
+                {% for message in messages %}
+
+                <div class="alert-message" role="alert" style="font-size:30px; text-align:center; color:white">
+
+
+                {{message}}
+
+
+                </div>
+
+
+                {% endfor %}
+
+                {% endif %}
+                {% endwith %}
+
+        <section class = "banner">
+            <h2>REZERVA MASA</h2>
+            <div class = "card-container">
+                <div class = "card-img">
+
+                </div>
+
+                <div class = "card-content">
+                    <h3>Rezervare</h3>
+                    <form action="/inserare_rezervare" method="POST">
+                        <div class = "form-row">
+                            <input type="date" name="data" required>
+
+                            <select name = "hours">
+                                <option value = "hour-select">Alege Ora</option>
+                                <option value = "10">10: 00</option>
+                                <option value = "11">11: 00</option>
+                                <option value = "12">12: 00</option>
+                                <option value = "13">13: 00</option>
+                                <option value = "14">14: 00</option>
+                                <option value = "15">15: 00</option>
+                                <option value = "16">16: 00</option>
+                                <option value = "17">17: 00</option>
+                                <option value = "18">18: 00</option>
+                                <option value = "19">19: 00</option>
+                                <option value = "20">20: 00</option>
+                                <option value = "21">21: 00</option>
+                            </select>
+                        </div>
+
+                        <div class = "form-row">
+                            <input type = "text" placeholder="Nume" name="nume" required>
+                            <input type = "text" placeholder="Numar de telefon" name="telefon" required>
+                        </div>
+
+                        <div class = "form-row">
+                            <input type = "number" placeholder="Numar de persoane" name="persoane" min = "1" required>
+                            <input type = "submit" value = "REZERVA">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </body>
+</html>

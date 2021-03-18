@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA Compatible" content="ie-edge">
+    <link rel="stylesheet" href="{{url_for('static',filename='styleContact.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Contact - Crazy Pizza</title>
+  </head>
+  <body>
+
+    <div class="nav-wrapper">
+            <div class="left-side">
+              <div class="nav-image-logo">
+                    <a href="/">Crazy Pizza</a>
+              </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/">Home</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/meniu">Meniu</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/rezervare">Rezervare</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/logare">Admin</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/contact">Contact</a>
+                </div>
+
+                 <div class="nav-link-wrapper">
+                    <a href="/recenzie">Recenzii</a>
+                </div>
+
+            </div>
+
+            <div class="right-side">
+                <div class="brand">
+                    <div> BORZA ALEXANDRU </div>
+                </div>
+
+            </div>
+
+        </div>
+
+                {% with messages = get_flashed_messages() %}
+
+                {% if messages %}
+
+                {% for message in messages %}
+
+                <div class="alert-message" role="alert" style="font-size:30px; text-align:center; color:white">
+
+
+                {{message}}
+
+
+                </div>
+
+
+                {% endfor %}
+
+                {% endif %}
+                {% endwith %}
+
+      <section id="contact-section">
+          <div class="container">
+              <h2>Contacteaza-ne</h2>
+              <p>Te asteptam sa ne scrii toate recomandarile sau intrebarile tale</p>
+              <div class="contact-form">
+
+                  <div>
+                      <i class="fa fa-map-marker"></i><span class="form-info">Strada 1, Numarul 63</span><br>
+                      <i class="fa fa-phone"></i><span class="form-info">Numar de telefon: 0257 342 324</span><br>
+                      <i class="fa fa-envelope"></i><span class="form-info">crazypizza@yahoo.com</span><br>
+                  </div>
+
+                  <div>
+                      <form action="/contact_message" method="POST">
+                          <input type="text" placeholder="Nume" name="nume" required>
+                          <input type="text" placeholder="Prenume" name="prenume" required>
+                          <input type="Email" placeholder="Email" name="email" required>
+                          <input type="text" placeholder="Subiectul Mesajului" name="subiect" required>
+                          <textarea name="message" placeholder="Message"  rows="5" required></textarea>
+                          <button class="submit" >Trimite Mesaj</button>
+                      </form>
+                    </div>
+                  </div>
+              </div>
+        </section>
+  </body>
+</html>

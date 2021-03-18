@@ -1,0 +1,20 @@
+body{
+    background-color: rgb(255,248,220);
+}
+
+
+input[type=text] {
+  width: 500px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+    padding:5px 15px;
+    background:#4CAF50;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}

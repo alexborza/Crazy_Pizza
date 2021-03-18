@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static',filename='styleEditare.css')}}">
+    <title>Editare</title>
+</head>
+<body>
+<div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+
+            <h4 class="modal-title">Editare Pizza</h4>
+         </div>
+         <div class="modal-body">
+
+            <form action="{{url_for('update')}}" enctype="multipart/form-data" method="POST">
+
+
+               <div class="form-group">
+
+                  <label>Titlu:</label>
+                   <input type="hidden"  name="id" value="{{pizza.id}}">
+                  <input type="text" class="form-control" name="titlu" required="1" value="{{pizza.titlu}}">
+
+
+               </div>
+
+
+                <div class="form-group">
+
+
+                  <label>Pret-30cm:</label>
+                  <input type="text" class="form-control" name="pret" value="{{pizza.pret}}" required="1">
+
+
+               </div>
+
+
+                <div class="form-group">
+                  <label>Ingrediente:</label>
+                  <input type="text" class="form-control" name="ingrediente" value="{{pizza.ingrediente}}" required="1">
+               </div>
+
+                <div class="form-group">
+                    <input type="file" id="file" hidden="hidden" name="file" accept="image/*" required/>
+                    <br>
+                    <input type="submit" id="custom-button" value="Incarca o poza"></input>
+                    <span id="custom-text">No file chosen</span>
+                    <script>
+                        $(function(){
+                            $('#file').on('change',function(){
+                                var filePath = $(this).val();
+                            });
+                        });
+                    </script>
+                    <script type="text/javascript">
+                        const realFileBtn = document.getElementById("file");
+                        const customBtn = document.getElementById("custom-button");
+                        const customTxt = document.getElementById("custom-text");
+
+                        customBtn.addEventListener("click",function(){
+                            realFileBtn.click();
+                        })
+
+                        realFileBtn.addEventListener("change", function(){
+                            if(realFileBtn.value){
+                                customTxt.innerHTML=realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+                            }
+                        })
+                    </script>
+                </div>
+
+               <div class="form-group">
+
+                   <br>
+                  <input class="btn btn-primary" type="submit" value="Editeaza Pizza"></input>
+
+
+               </div>
+
+
+            </form>
+
+
+         </div>
+
+      </div>
+
+
+   </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Recenzie - Crazy Pizza</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styleMesaje.css')}}">
+  </head>
+  <body>
+     <div class="nav-wrapper">
+            <div class="left-side">
+              <div class="nav-image-logo">
+                    <a href="/">Crazy Pizza</a>
+              </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/">Home</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/mesaje">Mesaje</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/logare_admin">Admin</a>
+                </div>
+            </div>
+
+            <div class="right-side">
+                <div class="brand">
+                    <div> BORZA ALEXANDRU </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    <div class="portofolio-items-wrapper">
+     {% for row in mesaje %}
+
+        <div class="portofolio-item wrapper">
+            <div class="text-wrapper">
+                <div class="mesaje">
+                    <h3>{{row.nume}} {{row.prenume}} - {{row.subiect}}: {{row.mesaj}}</h3>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+     {% endfor %}
+     </div>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Meniu - Crazy Pizza</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='styleMeniu.css')}}">
+  </head>
+  <body>
+     <div class="nav-wrapper">
+            <div class="left-side">
+              <div class="nav-image-logo">
+                    <a href="/">Crazy Pizza</a>
+              </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/">Home</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/meniu">Meniu</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/rezervare">Rezervare</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/logare">Admin</a>
+                </div>
+
+                <div class="nav-link-wrapper">
+                    <a href="/contact">Contact</a>
+                </div>
+
+                 <div class="nav-link-wrapper">
+                    <a href="/recenzie">Recenzii</a>
+                </div>
+
+            </div>
+
+            <div class="right-side">
+                <div class="brand">
+                    <div> BORZA ALEXANDRU </div>
+                </div>
+
+            </div>
+
+        </div>
+
+     <div class="portofolio-items-wrapper">
+     {% for row in photos %}
+
+        <div class="portofolio-item wrapper">
+            <div class="portofolio-image">
+                 <img id="imagineEdit" src="/static/images/{{row.poza}}" style="max-width:200px; max-height:200px">
+            </div>
+            <div class="img-text-wrapper">
+                <div class="descriere">
+                    <h3>{{row.titlu}} - {{row.ingrediente}}</h3>
+                </div>
+            </div>
+        </div>
+
+     {% endfor %}
+     </div>
+
+  </body>
+</html>
